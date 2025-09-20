@@ -186,9 +186,10 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🙏 Acknowledgments
 
-- Inspired by Netflix's user interface design
-- Built with React.js and modern web technologies
-- Special thanks to the open-source community
+- **Original Template**: This portfolio is based on the Netflix-style portfolio template created by [SamalaSumanth0262](https://github.com/SamalaSumanth0262/netflix_portfolio)
+- **UI Inspiration**: Inspired by Netflix's user interface design
+- **Technologies**: Built with React.js and modern web technologies
+- **Community**: Special thanks to the open-source community
 
 ---
 
