@@ -1,29 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './ContactMe.css';
-import profilePic from '../images/sumanth.jpeg';
 import { FaEnvelope, FaPhoneAlt, FaCoffee, FaLinkedin } from 'react-icons/fa';
 import { ContactMe as IContactMe } from '../types';
-import { getContactMe } from '../queries/getContactMe';
+
+import profilePic from '../images/karthikeya-profile.jpg';
 
 const ContactMe: React.FC = () => {
 
-  const [userData, setUserData] = useState<IContactMe>()
-
-  useEffect(() => {
-    async function fetchUserData() {
-      const data = await getContactMe();
-      setUserData(data);
-    }
-
-    fetchUserData();
-  }, []);
-
-  if (!userData) return <div>Loading...</div>;
+  // Local data for Karthikeya Reddy
+  const userData: IContactMe = {
+    profilePicture: { url: profilePic },
+    name: "Karthikeya Reddy",
+    title: "Software Engineer",
+    summary: "I'm a Master's student in Computer Science at NC State University, passionate about building scalable full-stack applications and AI-driven solutions. With hands-on experience in the MERN stack, cloud deployment, and Generative AI (LangChain, Pinecone, Hugging Face), I enjoy creating impactful projects that combine strong engineering principles with modern AI.",
+    companyUniversity: "NC State University",
+    linkedinLink: "https://www.linkedin.com/in/karthikeyareddy77/",
+    email: "karthikeya.7746@gmail.com",
+    phoneNumber: "+1 9195213775"
+  };
 
   return (
     <div className="contact-container">
       <div className="linkedin-badge-custom">
-        <img src={profilePic} alt="Sumanth Samala" className="badge-avatar" />
+        <img src={userData.profilePicture.url} alt="Karthikeya Reddy" className="badge-avatar" />
         <div className="badge-content">
           <h3 className="badge-name">{userData?.name}</h3>
           <p className="badge-title">{userData.title}</p>

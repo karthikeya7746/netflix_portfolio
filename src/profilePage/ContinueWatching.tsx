@@ -2,7 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './ContinueWatching.css';
 
-type ProfileType = 'recruiter' | 'developer' | 'stalker' | 'adventure';
+// Import your custom images
+import certificationsImg from '../images/certifications-bg.jpg';
+import contactImg from '../images/contact-bg.jpg';
+import readingImg from '../images/reading-bg.jpg';
+
+type ProfileType = 'recruiter' | 'developer' | 'stalker' | 'adventurer';
 
 interface ContinueWatchingProps {
   profile: ProfileType;
@@ -10,28 +15,22 @@ interface ContinueWatchingProps {
 
 const continueWatchingConfig = {
   recruiter: [
-    { title: "Music", imgSrc: "https://picsum.photos/id/1025/300/200", link: "/music" },
-    { title: "Reading", imgSrc: "https://picsum.photos/id/1026/300/200", link: "/reading" },
-    { title: "Blogs", imgSrc: "https://picsum.photos/id/1027/300/200", link: "/blogs" },
-    { title: "Contact Me", imgSrc: "https://picsum.photos/id/1029/300/200", link: "/contact-me" }
+    { title: "Reading", imgSrc: readingImg, link: "/reading" },
+    { title: "Contact Me", imgSrc: contactImg, link: "/contact-me" }
   ],
   developer: [
-    { title: "Music", imgSrc: "https://picsum.photos/id/1025/300/200", link: "/music" },
-    { title: "Reading", imgSrc: "https://picsum.photos/id/1026/300/200", link: "/reading" },
-    { title: "Blogs", imgSrc: "https://picsum.photos/id/1027/300/200", link: "/blogs" },
-    { title: "Certifications", imgSrc: "https://picsum.photos/id/1028/300/200", link: "/certifications" },
-    { title: "Contact Me", imgSrc: "https://picsum.photos/id/1029/300/200", link: "/contact-me" }
+    { title: "Reading", imgSrc: readingImg, link: "/reading" },
+    { title: "Certifications", imgSrc: certificationsImg, link: "/certifications" },
+    { title: "Contact Me", imgSrc: contactImg, link: "/contact-me" }
   ],
   stalker: [
-    { title: "Reading", imgSrc: "https://picsum.photos/id/1026/300/200", link: "/reading" },
-    { title: "Blogs", imgSrc: "https://picsum.photos/id/1027/300/200", link: "/blogs" },
-    { title: "Contact Me", imgSrc: "https://picsum.photos/id/1029/300/200", link: "/contact-me" }
+    { title: "Reading", imgSrc: readingImg, link: "/reading" },
+    { title: "Contact Me", imgSrc: contactImg, link: "/contact-me" }
   ],
-  adventure: [
-    { title: "Music", imgSrc: "https://picsum.photos/id/1025/300/200", link: "/music" },
-    { title: "Reading", imgSrc: "https://picsum.photos/id/1026/300/200", link: "/reading" },
-    { title: "Certifications", imgSrc: "https://picsum.photos/id/1028/300/200", link: "/certifications" },
-    { title: "Contact Me", imgSrc: "https://picsum.photos/id/1029/300/200", link: "/contact-me" }
+  adventurer: [
+    { title: "Reading", imgSrc: readingImg, link: "/reading" },
+    { title: "Certifications", imgSrc: certificationsImg, link: "/certifications" },
+    { title: "Contact Me", imgSrc: contactImg, link: "/contact-me" }
   ]
 };
 

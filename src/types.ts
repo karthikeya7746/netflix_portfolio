@@ -29,8 +29,9 @@ export interface TimelineItem {
 export interface Project {
   title: string;
   description: string;
-  techUsed: string;
+  techUsed: string[];        // ← change from string to string[]
   image: { url: string };
+  githubUrl?: string;        // ← optional GitHub URL
 }
 
 export interface Certification {

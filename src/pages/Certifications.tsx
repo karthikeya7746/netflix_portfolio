@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Certifications.css';
 import { FaExternalLinkAlt, FaUniversity } from 'react-icons/fa';
 import { SiUdemy, SiCoursera, SiIeee } from 'react-icons/si';
 import { Certification } from '../types';
-import { getCertifications } from '../queries/getCertifications';
+
 const iconData: { [key: string]: JSX.Element } = {
   'udemy': <SiUdemy />,
   'coursera': <SiCoursera />,
@@ -13,18 +13,20 @@ const iconData: { [key: string]: JSX.Element } = {
 
 const Certifications: React.FC = () => {
 
-  const [certifications, setCertifications] = useState<Certification[]>([]);
+  // Local certifications data for Karthikeya Reddy
+  const certifications: Certification[] = [
+    // Add your certifications here when you have them
+    // Example format:
+    // {
+    //   title: "AWS Certified Developer",
+    //   issuer: "Amazon Web Services",
+    //   issuedDate: "Dec 2023",
+    //   link: "https://example.com/certificate",
+    //   iconName: "university"
+    // }
+  ];
 
-  useEffect(() => { 
-    async function fetchCertifications() {
-      const data = await getCertifications();
-      setCertifications(data);
-    }
-
-    fetchCertifications();
-  }, []);
-
-  if (certifications.length === 0) return <div>Loading...</div>;
+  if (certifications.length === 0) return <div className="certifications-container"><p>No certifications to display yet.</p></div>;
 
   return (
     <div className="certifications-container">

@@ -1,105 +1,91 @@
-import React, { useEffect, useState } from 'react';
-import './Projects.css';
-import { FaReact, FaNodeJs, FaAws, FaDatabase, FaDocker, FaAngular, FaGithub, FaGitlab, FaGoogle, FaJava, FaJenkins, FaMicrosoft, FaPython, FaVuejs } from 'react-icons/fa';
-import { SiRubyonrails, SiPostgresql, SiMongodb, SiMaterialdesign, SiHtml5, SiCss3, SiJquery, SiAwsamplify, SiFirebase, SiTerraform, SiArgo } from 'react-icons/si';
-import { Project } from '../types';
-import { getProjects } from '../queries/getProjects';
-import { GrDeploy, GrKubernetes } from "react-icons/gr";
+import React from "react";
+import "./Projects.css";
+import type { Project } from "../types";
 
-const techIcons: { [key: string]: JSX.Element } = {
-  "ReactJS": <FaReact />,
-  "NodeJS": <FaNodeJs />,
-  "AWS": <FaAws />,
-  "PostgreSQL": <SiPostgresql />,
-  "MongoDB": <SiMongodb />,
-  "Ruby On Rails": <SiRubyonrails />,
-  "Material UI": <SiMaterialdesign />,
-  "HTML5": <SiHtml5 />,
-  "CSS3": <SiCss3 />,
-  "jQuery": <SiJquery />,
-  "AWS-ECS": <SiAwsamplify />,
-  'Cognito': <FaAws />,
-  'Lambda': <FaAws />,
-  'ECS': <FaAws />,
-  'Jenkins': <FaJenkins />,
-  'Docker': <FaDocker />,
-  'GraphQL': <FaDatabase />,
-  'CI/CD': <FaGitlab />,
-  'GitLab': <FaGitlab />,
-  'GitHub': <FaGithub />,
-  'Heroku': <GrDeploy />,
-  'Netlify': <GrDeploy />,
-  'Firebase': <SiFirebase />,
-  'GCP': <FaGoogle />,
-  'Azure': <FaMicrosoft />,
-  'Kubernetes': <GrKubernetes />,
-  'Terraform': <SiTerraform />,
-  'ArgoCD': <SiArgo />,
-  'Java': <FaJava />,
-  'Spring Boot': <FaJava />,
-  'Python': <FaPython />,
-  'Node.js': <FaNodeJs />,
-  'Express.js': <FaNodeJs />,
-  'Hibernate': <FaJava />,
-  'Maven': <FaJava />,
-  'Gradle': <FaJava />,
-  'JUnit': <FaJava />,
-  'Mockito': <FaJava />,
-  'Jest': <FaReact />,
-  'React': <FaReact />,
-  'Angular': <FaAngular />,
-  'Vue.js': <FaVuejs />,
-  'Next.js': <FaReact />,
-  'Gatsby': <FaReact />,
-  'Nuxt.js': <FaVuejs />,
-  'Redux': <FaReact />,
-  'Vuex': <FaVuejs />,
-  'Tailwind CSS': <SiCss3 />,
-  'Bootstrap': <SiCss3 />,
-  'JQuery': <SiJquery />,
-};
+// import images from src/images
+import movieImg from "../images/movie-ticket-booking.png";
+import roleFitImg from "../images/role-fit.png";
+import wolfImg from "../images/wolf-jobs.png";
+import todoImg from "../images/todo-list-placeholder.png";
+
+// Placeholder for Movie Recommendation System
+const movieRecImg = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNjY2N2ZmIi8+PHRleHQgeD0iMjAwIiB5PSIxMDAiIGZvbnQtZmFtaWx5PSJBcmlhbCBCbGFjayIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9IjkwMCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TW92aWUgUmVjb21tZW5kYXRpb24gU3lzdGVtPC90ZXh0Pjwvc3ZnPg==";
 
 
-const Projects: React.FC = () => {
-  const [projects, setProjects] = useState<Project[]>([])
-  
-  useEffect(() => { 
-    async function fetchProjects() {
-      const data = await getProjects();
-      setProjects(data);
+// Local data for Karthikeya Reddy's projects
+const projectsData: Project[] = [
+  {
+    title: "AI-Powered Role Fit Evaluator",
+    description:
+      "Compares a resume and a Job Description to produce a fit score and an evidence-backed gap table. Creates tailored bullets and a cover letter. Includes an evidence panel and exports results as Markdown/JSON. Productionized with streaming responses, telemetry-based latency tracking, and a Dockerized demo.",
+    techUsed: ["Next.js", "FastAPI/Express", "LangChain", "Hugging Face", "Pinecone", "MongoDB"],
+    image: { url: roleFitImg },
+    // githubUrl: "https://github.com/karthikeya7746/role-fit-evaluator", // TODO: Add when project is completed
+  },
+  {
+    title: "Movie Ticket Booking System",
+    description:
+      "A full-stack MERN application for booking movie tickets with real-time seat selection, role-based authentication, and an intuitive admin dashboard. Features include secure JWT authentication, interactive seat selection, booking history, ticket cancellation, and Stripe payment integration. Deployed on Vercel with MongoDB Atlas.",
+    techUsed: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT", "Stripe", "Vercel"],
+    image: { url: movieImg },
+    githubUrl: "https://github.com/karthikeya7746/Movie_ticket_booking_system",
+  },
+  {
+    title: "WolfJobs - Job Matching Platform",
+    description:
+      "A comprehensive job portal connecting students with recruiters for full-time, part-time, co-op, and internship roles. Features resume parsing, skill-based job matching, advanced filters, job bookmarking, interview scheduling, and real-time application status tracking. Built with TypeScript and includes database security with password hashing.",
+    techUsed: ["TypeScript", "React.js", "Node.js", "Express.js", "MongoDB", "Docker", "Kubernetes"],
+    image: { url: wolfImg },
+    githubUrl: "https://github.com/karthikeya7746/WolfJobs",
+  },
+  {
+    title: "Movie Recommendation System",
+    description:
+      "An intelligent movie recommendation system that suggests personalized movie recommendations based on user's favorite movie input. Uses machine learning algorithms with cosine similarity to analyze and compare movie features including genres, keywords, tagline, cast, and director. Built with Flask web framework and deployed with a clean, interactive user interface.",
+    techUsed: ["Python", "Flask", "scikit-learn", "pandas", "NumPy", "NLTK", "HTML", "CSS"],
+    image: { url: movieRecImg },
+    githubUrl: "https://github.com/karthikeya7746/Movie_Recommendation_System",
+  },
+  {
+    title: "ToDo List App",
+    description:
+      "A simple and interactive ToDo List application built with the MERN stack (MongoDB, Express.js, React.js, Node.js). This app allows users to create, read, update, and delete tasks seamlessly. Features include persistent storage using MongoDB, responsive UI for better user experience, and full CRUD operations for task management.",
+    techUsed: ["React.js", "Node.js", "Express.js", "MongoDB", "CSS", "Git", "Postman"],
+    image: { url: todoImg },
+    githubUrl: "https://github.com/karthikeya7746/ToDo_List",
+  },
+];
+
+export default function Projects() {
+  const handleProjectClick = (githubUrl: string) => {
+    if (githubUrl) {
+      window.open(githubUrl, '_blank', 'noopener,noreferrer');
     }
-    
-    fetchProjects()
-  }, [])
-  
-  if (projects.length === 0) return <div>Loading...</div>;
+  };
 
   return (
-    <div className="projects-container">
+    <section className="projects-container">
+      <h2 className="projects-title">Projects</h2>
       <div className="projects-grid">
-        {projects.map((project, index) => (
-          <div
-            key={index}
+        {projectsData.map((p, idx) => (
+          <article 
+            key={p.title ?? idx} 
             className="project-card"
-            style={{ '--delay': `${index * 0.1}s` } as React.CSSProperties}
+            onClick={() => handleProjectClick(p.githubUrl || '')}
+            style={{ cursor: p.githubUrl ? 'pointer' : 'default' }}
           >
-            <img src={project.image.url} alt={project.title} className="project-image" />
-            <div className="project-details">
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              <div className="tech-used">
-                {project.techUsed.split(', ').map((tech, i) => (
-                  <span key={i} className="tech-badge">
-                    {techIcons[tech] || "🔧"} {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
+            {p.image?.url && <img src={p.image.url} alt={p.title} className="project-image" />}
+            <h3 className="project-title">{p.title}</h3>
+            <p className="project-desc">{p.description}</p>
+            {p.techUsed?.length ? (
+              <div className="project-tech">{p.techUsed.join(" • ")}</div>
+            ) : null}
+            {p.githubUrl && (
+              <div className="github-link">🔗 View on GitHub</div>
+            )}
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   );
-};
-
-export default Projects;
+}
