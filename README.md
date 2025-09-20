@@ -193,6 +193,3 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-**Made with ❤️ by Karthikeya Reddy**
-
-*"Building the future, one line of code at a time."*
