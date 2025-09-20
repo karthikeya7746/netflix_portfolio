@@ -1,8 +1,8 @@
 import React from 'react';
 import './Skills.css';
 
-import { FaReact, FaNodeJs, FaAws, FaDocker, FaGitAlt, FaJava, FaPython } from 'react-icons/fa';
-import { SiTypescript, SiPostgresql, SiMysql, SiKubernetes, SiGooglecloud, SiHtml5, SiCss3, SiMongodb, SiExpress, SiNextdotjs, SiFastapi, SiDjango, SiBootstrap, SiVercel, SiOpenai, SiHuggingface } from 'react-icons/si';
+import { FaReact, FaNodeJs, FaAws, FaDocker, FaJava, FaPython } from 'react-icons/fa';
+import { SiTypescript, SiPostgresql, SiMysql, SiKubernetes, SiGooglecloud, SiMongodb, SiExpress, SiNextdotjs, SiFastapi, SiDjango, SiBootstrap, SiVercel, SiOpenai, SiHuggingface } from 'react-icons/si';
 import { Skill } from '../types';
 
 const iconMap: { [key: string]: JSX.Element } = {
@@ -18,15 +18,12 @@ const iconMap: { [key: string]: JSX.Element } = {
   SiMongodb: <SiMongodb />,
   SiPostgresql: <SiPostgresql />,
   SiMysql: <SiMysql />,
-  SiHtml5: <SiHtml5 />,
-  SiCss3: <SiCss3 />,
   SiBootstrap: <SiBootstrap />,
   FaDocker: <FaDocker />,
   SiKubernetes: <SiKubernetes />,
   FaAws: <FaAws />,
   SiGooglecloud: <SiGooglecloud />,
   SiVercel: <SiVercel />,
-  FaGitAlt: <FaGitAlt />,
   SiOpenai: <SiOpenai />,
   SiHuggingface: <SiHuggingface />,
 };
