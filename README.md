@@ -3,8 +3,7 @@
 A modern, interactive portfolio website built with React.js and styled to mimic the Netflix interface. This portfolio showcases my professional journey, projects, and skills in an engaging, user-friendly format.
 
 ## 🚀 Live Demo
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/your-badge-id/deploy-status)](https://your-portfolio-url.netlify.app)
+https://netflix-portfolio-new.vercel.app
 
 ## 👨‍💻 About Me
 
@@ -193,6 +192,3 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-**Made with ❤️ by Karthikeya Reddy**
-
-*"Building the future, one line of code at a time."*
