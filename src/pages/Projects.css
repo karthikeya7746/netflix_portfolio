@@ -24,6 +24,8 @@
   animation-delay: var(--delay);
   transition: all 0.3s ease;
   position: relative;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .project-card:hover {

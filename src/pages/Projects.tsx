@@ -57,9 +57,17 @@ const projectsData: Project[] = [
 ];
 
 export default function Projects() {
-  const handleProjectClick = (githubUrl: string) => {
-    if (githubUrl) {
-      window.open(githubUrl, '_blank', 'noopener,noreferrer');
+  const handleProjectClick = (e: React.MouseEvent, githubUrl: string | undefined) => {
+    if (!githubUrl) return;
+    
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Try window.open first, fallback to window.location if blocked
+    const newWindow = window.open(githubUrl, '_blank', 'noopener,noreferrer');
+    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+      // Popup blocked, fallback to same window
+      window.location.href = githubUrl;
     }
   };
 
@@ -71,8 +79,16 @@ export default function Projects() {
           <article 
             key={p.title ?? idx} 
             className="project-card"
-            onClick={() => handleProjectClick(p.githubUrl || '')}
+            onClick={(e) => handleProjectClick(e, p.githubUrl)}
             style={{ cursor: p.githubUrl ? 'pointer' : 'default' }}
+            role={p.githubUrl ? 'link' : undefined}
+            tabIndex={p.githubUrl ? 0 : undefined}
+            onKeyDown={(e) => {
+              if (p.githubUrl && (e.key === 'Enter' || e.key === ' ')) {
+                e.preventDefault();
+                handleProjectClick(e as any, p.githubUrl);
+              }
+            }}
           >
             {p.image?.url && <img src={p.image.url} alt={p.title} className="project-image" />}
             <h3 className="project-title">{p.title}</h3>
