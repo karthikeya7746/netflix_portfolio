@@ -58,15 +58,27 @@ const projectsData: Project[] = [
 
 export default function Projects() {
   const handleProjectClick = (e: React.MouseEvent, githubUrl: string | undefined) => {
-    if (!githubUrl) return;
+    if (!githubUrl) {
+      console.warn('No GitHub URL provided for project');
+      return;
+    }
     
     e.preventDefault();
     e.stopPropagation();
     
+    console.log('Opening GitHub URL:', githubUrl);
+    
     // Try window.open first, fallback to window.location if blocked
-    const newWindow = window.open(githubUrl, '_blank', 'noopener,noreferrer');
-    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-      // Popup blocked, fallback to same window
+    try {
+      const newWindow = window.open(githubUrl, '_blank', 'noopener,noreferrer');
+      if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+        // Popup blocked, fallback to same window
+        console.log('Popup blocked, using window.location');
+        window.location.href = githubUrl;
+      }
+    } catch (error) {
+      console.error('Error opening GitHub URL:', error);
+      // Final fallback
       window.location.href = githubUrl;
     }
   };
