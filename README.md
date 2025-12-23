@@ -3,7 +3,8 @@
 A modern, interactive portfolio website built with React.js and styled to mimic the Netflix interface. This portfolio showcases my professional journey, projects, and skills in an engaging, user-friendly format.
 
 ## 🚀 Live Demo
-[Live Demo](karthikeyareddycom.netlify.app)
+Live Demo: https://karthikeyareddycom.netlify.app
+
 
 ## 👨‍💻 About Me
 
