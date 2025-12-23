@@ -20,7 +20,7 @@ const projectsData: Project[] = [
       "Compares a resume and a Job Description to produce a fit score and an evidence-backed gap table. Creates tailored bullets and a cover letter. Includes an evidence panel and exports results as Markdown/JSON. Productionized with streaming responses, telemetry-based latency tracking, and a Dockerized demo.",
     techUsed: ["Next.js", "FastAPI/Express", "LangChain", "Hugging Face", "Pinecone", "MongoDB"],
     image: { url: roleFitImg },
-    // githubUrl: "https://github.com/karthikeya7746/role-fit-evaluator", // TODO: Add when project is completed
+    githubUrl: "https://github.com/karthikeya7746/role-fit-evaluator",
   },
   {
     title: "Movie Ticket Booking System",
